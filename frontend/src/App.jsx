@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-// import Dashboard from './components/Dashboard';
 import Dashboard from './pages/home/DashBoard';
 import './app.css';
 import LoginPage from './pages/login/LoginPage';

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import '../components/taskform.css';
 
-const TaskForm = ({ token, addTask }) => {
+const TaskForm = ({addTask }) => {
   const [task, setTask] = useState({
     date: "",
     taskDescription: "",
@@ -47,7 +47,16 @@ const TaskForm = ({ token, addTask }) => {
         min="1"
         required
       />
-      <button type="submit">Submit</button>
+            <select
+        value={task.status}
+        onChange={(e) => setTask({ ...task, status: e.target.value })}
+        required
+      >
+        <option value="Pending">Pending</option>
+        <option value="Completed">Completed</option>
+      </select>
+
+      <button type="submit">Add Task</button>
     </form>
   );
 };

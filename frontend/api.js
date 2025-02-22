@@ -5,24 +5,15 @@ const API_URL = 'http://localhost:5000/api';
 const login = async (username, password) => {
   try {
     const response = await axios.post(`${API_URL}/auth/login`, { username, password });
-    return response.data; // Expecting { token: '...' }
+    return response.data; 
   } catch (error) {
     console.error('Login error:', error.response ? error.response.data : error.message);
     throw new Error(error.response?.data?.message || 'Login failed. Please check your credentials.');
   }
 };
 
-// const register = async (username, password) => {
-//   try {
-//     const response = await axios.post(`${API_URL}/auth/register`, { username, password });
-//     return response.data; // Expecting { message: 'User registered successfully' }
-//   } catch (error) {
-//     console.error('Registration error:', error.response ? error.response.data : error.message);
-//     throw new Error(error.response?.data?.message || 'Registration failed. Please try again.');
-//   }
-// };
 
- const getTasks= async (token) => {
+const getTasks = async (token) => {
   try {
     const response = await axios.get(`${API_URL}/tasks`, {
       headers: { Authorization: `Bearer ${token}` },
@@ -32,9 +23,9 @@ const login = async (username, password) => {
     console.error("Error fetching tasks:", error);
     throw error;
   }
-}
+};
 
- const createTask= async (task, token) => {
+const createTask = async (task, token) => {
   try {
     const response = await axios.post(`${API_URL}/tasks`, task, {
       headers: { Authorization: `Bearer ${token}` },
@@ -44,9 +35,10 @@ const login = async (username, password) => {
     console.error("Error creating task:", error);
     throw error;
   }
-}
+};
 
- const deleteTask= async (taskId, token) => {
+
+const deleteTask = async (taskId, token) => {
   try {
     await axios.delete(`${API_URL}/tasks/${taskId}`, {
       headers: { Authorization: `Bearer ${token}` },
@@ -55,5 +47,7 @@ const login = async (username, password) => {
     console.error("Error deleting task:", error);
     throw error;
   }
-}
-export default { login, getTasks,createTask,deleteTask };
+};
+
+
+export default { login, getTasks, createTask, deleteTask };

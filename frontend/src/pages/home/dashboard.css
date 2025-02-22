@@ -1,72 +1,113 @@
-/* Dashboard.css */
 .dashboard {
-    max-width: 800px;
-    margin: 30px auto;
     padding: 20px;
-    background: #ffffff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    font-family: Arial, sans-serif;
+  }
+  .dashboard h1 {
     text-align: center;
-}
-
-.dashboard h1 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.dashboard button {
-    background: #dc3545;
+  }
+  
+  button {
+    padding: 8px 12px;
+    background-color: #1a7ef1;
     color: white;
-    padding: 10px 15px;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s ease-in-out;
-}
-
-.dashboard button:hover {
-    background: #c82333;
-}
-
-.task-list {
-    margin-top: 20px;
-    padding: 0;
-    list-style: none;
-}
-
-.task-item {
-    background: #f8f9fa;
-    padding: 15px;
     border-radius: 5px;
-    margin-bottom: 10px;
-    text-align: left;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+    transition: 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .dashboard > button {
+    display: block;
+    margin: 10px auto;
+  }
+  
+  .dashboard-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap; 
+  }
+  
+  .task-form-container {
+    flex: 1;
+    max-width: 350px; 
+    min-width: 250px; 
+  }
+  
+  .task-table-container {
+    flex: 2;
+    overflow-x: auto;
+  }
+  
+  .task-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .task-table th, 
+  .task-table td {
+    border: 2px solid #f4eaea;
+    padding: 10px;
+  }
+  
+  .task-table th {
+    background-color: #f4f4f4;
+  }
+  .action-btns {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .edit-btn {
+    background-color: green;
+  }
+  
+  .edit-btn:hover {
+    background-color: #0b6d2f;
+  }
+  
+  .delete-btn {
+    background-color: #dc3545;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c82333;
+  }
+  
 
-.task-item strong {
-    color: #007bff;
-}
-
-@media (max-width: 600px) {
-    .dashboard {
-        max-width: 100%;
-        padding: 15px;
+  @media (max-width: 768px) {
+    .dashboard-container {
+      flex-direction: column; 
+      align-items: center; 
     }
-
-    .dashboard h1 {
-        font-size: 20px;
+  
+    .task-form-container {
+      max-width: 100%; 
+      margin-bottom: 20px; 
     }
-
-    .dashboard button {
-        width: 100%;
-        font-size: 14px;
-        padding: 8px;
+  
+    .task-table-container {
+      width: 100%; 
+      
     }
-
-    .task-item {
-        font-size: 14px;
-        padding: 12px;
+  
+    .task-table {
+      font-size: 14px;  }
+  
+    .task-table th, 
+    .task-table td {
+      padding: 8px;  }
+  
+    button {
+      width: 100%;
+            padding: 10px; 
     }
-}
+  }
+  

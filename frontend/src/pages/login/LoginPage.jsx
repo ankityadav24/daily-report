@@ -5,25 +5,14 @@ import "./LoginPage.css";
 
 const LoginPage = ({ onLogin }) => { 
   const [formData, setFormData] = useState({ username: "", password: "" });
-  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: "" });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let newErrors = {};
-
-    if (!formData.username) newErrors.username = "Username is required";
-    if (!formData.password) newErrors.password = "Password is required";
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
 
     try {
       const response = await api.login(formData.username, formData.password);
@@ -49,11 +38,10 @@ const LoginPage = ({ onLogin }) => {
           <input
             type="text"
             name="username"
+            required
             value={formData.username}
             onChange={handleChange}
-            className={errors.username ? "error-input" : ""}
           />
-          {errors.username && <span className="error">{errors.username}</span>}
         </div>
 
         <div className="input-group">
@@ -62,10 +50,9 @@ const LoginPage = ({ onLogin }) => {
             type="password"
             name="password"
             value={formData.password}
+            required
             onChange={handleChange}
-            className={errors.password ? "error-input" : ""}
           />
-          {errors.password && <span className="error">{errors.password}</span>}
         </div>
 
         <button type="submit" className="login-btn">Login</button>

@@ -3,7 +3,7 @@
   width: 300px;
   margin: 50px auto;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
   text-align: center;
@@ -12,8 +12,9 @@
 
 /* Input group styling */
 .input-group {
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   text-align: left;
+  padding: 12px;
 }
 
 .input-group label {
@@ -30,20 +31,12 @@
   font-size: 16px;
 }
 
-/* Error message styling */
-.error {
-  color: red;
-  font-size: 14px;
-}
-
-.error-input {
-  border-color: red;
-}
-
 /* Button styling */
 .login-btn {
-  width: 100%;
+  width: 90%;
   padding: 10px;
+  margin: 10px;
+
   background-color: #007bff;
   border: none;
   color: white;

@@ -12,4 +12,21 @@ const getTaskReports = async (req, res) => {
   res.json(taskReports);
 };
 
-module.exports = { createTaskReport, getTaskReports };
+const deleteTaskReport = async (req, res) => {
+  const { id } = req.params; // Assuming the ID is passed as a URL parameter
+
+  try {
+    const taskReport = await TaskReport.findByIdAndDelete(id);
+
+    if (!taskReport) {
+      return res.status(404).json({ message: 'Task report not found' });
+    }
+
+    res.status(204).send(); // No content to send back
+  } catch (error) {
+    res.status(500).json({ message: 'Error deleting task report', error });
+  }
+};
+
+ 
+module.exports = { createTaskReport, getTaskReports,deleteTaskReport,};
